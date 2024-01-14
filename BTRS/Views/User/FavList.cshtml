@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BTRS.Models.Booking>
+
+@{
+    ViewData["Title"] = "FavList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>FavList</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Trip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passenger)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trip.TripID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Passenger.PassengerID)
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BTRS.Models.Trip>
+
+@{
+    ViewData["Title"] = "PassengerBookings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>PassengerBookings</h1>
+
+<p>
+    <a asp-action="PassengerIndex">More Bookings</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripDis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripDis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bus.BusID)
+            </td>
+            <td>
+                 |
+                <a asp-action="Details" asp-route-id="@item.TripID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TripID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+﻿@model List<BTRS.Models.Trip>
+
+@{
+    ViewData["Title"] = "BooksList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #495057;
+        font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+        color: #007bff;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-spacing: 0;
+        border-collapse: collapse;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+        border-right: 1px solid #dee2e6;
+    }
+
+    th {
+        background-color: #007bff;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #d4edda;
+    }
+</style>
+
+<h1>Books List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Trip ID</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Bus Number</th>
+            <th>Trip Destination</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TripID</td>
+                <td>@item.StartDate</td>
+                <td>@item.EndDate</td>
+                <td>@item.BusNumber</td>
+                <td>@item.TripDis</td>
+            </tr>
+        }
+    </tbody>
+</table>
